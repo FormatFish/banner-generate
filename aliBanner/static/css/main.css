@@ -1,0 +1,284 @@
+
+body, html { 
+	font-size: 100%; 	
+	padding: 0; 
+	margin: 0;
+	background-image: #000;
+}
+
+/*modifying the basic bootstrap style sheet*/
+
+
+
+/* Reset */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+body {
+    font-family:'微软雅黑', 'Lato', Calibri, Arial, sans-serif;
+    color: #DA4758;
+    background-color: #efefef;
+}
+
+a {
+	color: #f0f0f0;
+	text-decoration: none;
+}
+
+
+.main > section {
+	max-width: 260px;
+	width: 90%;
+}
+
+.main > section h2 {
+	font-weight: 300;
+	color: #ccc;
+}
+
+.main > section button {
+	border: none;
+	background: #DA4758;
+	color: #fff;
+	padding: 1.2em;
+	display: block;
+	width: 100%;
+	cursor: pointer;
+	font-size: 0.8em;
+}
+
+.main > section button:hover {
+	background: #BF3D4C;
+}
+
+.main > section button.active {
+	background: #B33947;
+}
+
+.main > section button.disabled {
+	background: #aaa;
+	pointer-events: none;
+}
+
+.icon-drop:before, 
+.icon-arrow-left:before {
+	font-family: 'fontawesome';
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 2;
+	text-align: center;
+	color: #DA4758;
+	-webkit-font-smoothing: antialiased;
+	text-indent: 8000px;
+	padding-left: 8px;
+}
+
+.container > header nav a:hover:before {
+	color: #fff;
+}
+
+.icon-drop:before {
+	content: "\e000";
+}
+
+.icon-arrow-left:before {
+	content: "\f060";
+}
+
+.fixedLabel1 {
+	position: absolute;
+	left: 140px;
+    top: 360px;
+
+    margin: 20px;
+
+    width: 30px;
+    height: 100px;
+
+    background-color: #fff;
+
+    border: 3px solid #f23f60;
+    outline:none;
+
+    color: #f23f60;
+    font-size: 14px;
+}
+
+.fixedLabel1:hover {
+	color: #555555;
+}
+
+.fixedLabel2 {
+	position: absolute;
+	left: 140px;
+    top: 160px;
+
+    margin: 20px;
+
+    width: 30px;
+    height: 100px;
+
+    background-color: #f23f60;
+
+    border: none;
+    outline:none;
+
+    color: #fff;
+    font-size: 14px;
+}
+
+.fixedLabel2:hover {
+	color: #efefef;
+}
+
+.setting {
+	outline:none;
+}
+
+.setting:hover {
+    color: #555555;
+}
+
+.personal {
+	width: 18px;
+	height: 18px;
+	margin: 0px;
+	padding: 0px;
+}
+
+label {
+	font-size: 14px;
+}
+
+/*color picker css*/
+.cp {
+   margin-top: 0px;
+   margin-bottom: 5px;
+}
+
+.io input {
+   width: 55px;
+   border: 1px solid black;
+}
+
+.io label {
+   font-size: 12px;
+   font-weight: bold;
+}
+
+
+#color {
+   width: 30px;
+   height: 30px;
+   float: left;
+   border: 5px solid #fff;
+   border-radius: 5px;
+   padding-left: 10px;
+   margin-left: 10px;
+}
+
+#text-color {
+   float: left;
+   margin-top: 30px;
+}
+
+.invisible {
+	display: none;
+}
+
+.label {
+	font-size: 14px;
+}
+
+#AddMoreFileBox {
+	line-height: 16px;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+#removeclass {
+
+}
+
+.inline {
+	display: inline-block;
+}
+
+.file {
+	font-size: 14px;
+	line-height: 16px;
+}
+
+hr {
+	border:none;
+    border-top:1px solid #F23F60;
+}
+
+.style_choose img {
+	border:5px solid #F8F8F8;
+} 
+
+::-webkit-scrollbar{
+    width: 12px;
+    height: 12px;
+    background-color: #F23F60;
+}
+/*定义滚动条的轨道，内阴影及圆角*/
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    border-radius: 10px;
+    background-color: #F23F60;
+}
+/*定义滑块，内阴影及圆角*/
+::-webkit-scrollbar-thumb{
+    width: 5px;
+    height: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #eeeeee;
+}
+
+#showLeftPush1 {
+	float: right;
+}
+.loading{  
+    width:300px;  
+    height:56px;  
+    position: absolute;  
+    top:50%;  
+    left:50%;  
+    line-height:56px;  
+    color:#fff;  
+    padding-left:60px;  
+    font-size:15px;  
+    background: #000 url(/static/img/loading.gif) no-repeat 10px 50%;  
+    opacity: 0.7;  
+    z-index:9999;  
+    -moz-border-radius:20px;  
+    -webkit-border-radius:20px;  
+    border-radius:20px;  
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);  
+    display: none;
+}  

@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="image/favicon.ico">
+
+    <title>Static Top Navbar Example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/ad-generator-bootstrap.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/component.css" rel="stylesheet">
+    <link href="/static/css/colorpickerthemes.css" rel="stylesheet">
+    <link href="/static/css/jquery.range.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/static/js/jquery-1.7.2.min.js"></script>
+    <script src="/static/js/uplo.js"></script>
+    <script>  
+        $(function () {
+            var btn = $("#Button1").uploadFile({  
+                url: "file.php",  
+                fileSuffixs: ["jpg", "png", "gif", "txt"],  
+                maximumFilesUpload: 7,//最大文件上传数  
+                onComplete: function (msg) {  
+                    $("#testdiv").append(msg + "<br/>");  
+                },  
+                onAllComplete: function () {  
+                    alert("全部上传完成");  
+                },  
+                isGetFileSize: true,//是否获取上传文件大小，设置此项为true时，将在onChosen回调中返回文件fileSize和获取大小时的错误提示文本errorText  
+                onChosen: function (file, obj, fileSize, errorText) {  
+                    if (!errorText) {  
+                        $("#file_size").text(file + "文件大小为：" + fileSize + "KB");  
+                    } else {  
+                        alert(errorText);  
+                        return false;  
+                    }  
+                    return true;//返回false将取消当前选择的文件  
+                },  
+                perviewElementId: "fileList", //设置预览图片的元素id  
+                perviewImgStyle: { width: '60px', height: '60px', border: '1px dashed #efefef'}//设置预览图片的样式  
+            });  
+  
+            var upload = btn.data("uploadFileData");  
+  
+            $("#files").click(function () {  
+                upload.submitUpload();  
+            });  
+        });  
+    </script>
+
+    <script>  
+        $(function () {
+            var btn = $("#Button2").uploadFile({  
+                url: "file.php",  
+                fileSuffixs: ["jpg", "png", "gif", "txt"],  
+                maximumFilesUpload: 7,//最大文件上传数  
+                onComplete: function (msg) {  
+                    $("#testdiv").append(msg + "<br/>");  
+                },  
+                onAllComplete: function () {  
+                    alert("全部上传完成");  
+                },  
+                isGetFileSize: true,//是否获取上传文件大小，设置此项为true时，将在onChosen回调中返回文件fileSize和获取大小时的错误提示文本errorText  
+                onChosen: function (file, obj, fileSize, errorText) {  
+                    if (!errorText) {  
+                        $("#file_size1").text(file + "文件大小为：" + fileSize + "KB");  
+                    } else {  
+                        alert(errorText);  
+                        return false;  
+                    }  
+                    return true;//返回false将取消当前选择的文件  
+                },  
+                perviewElementId: "style_choose", //设置预览图片的元素id  
+                perviewImgStyle: { width: '60px', height: '60px', border: '1px dashed #efefef'}//设置预览图片的样式  
+            });  
+  
+            var upload = btn.data("uploadFileData");  
+  
+            $("#files2").click(function () {  
+                upload.submitUpload();  
+            });  
+        });  
+    </script>    
+    <script src="/static/js/ad-generator-bootstrap.js"></script>
+    <script src="/static/js/modernizr.custom.js"></script>
+    <script src="/static/js/colorpicker.js"></script>
+    <script src="/static/js/jquery.range.js"></script>
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body class="cbp-spmenu-push">
+    <!--整体网页向右响应滑动-->
+    <!-- Static navbar -->
+    <nav class="navbar navbar-primary navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="#">智能广告设计生成器1.0</a></li>
+          </ul>
+          <!--<ul class="nav navbar-nav navbar-right">
+            <li><a href=""><img class="personal img-rounded" src="img/personal.jpg" alt="..."></a></li>
+          </ul>-->
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+		<h3>参数设置<button class="btn btn-xs btn-primary setting" id="showLeftPush1">收起</button></h3> 
+		<div class="cbp-container">
+		  <form class="form-horizontal" enctype="multipart/form-data"  role="form" , name="form" , id="form", method="POST" , action="/upload/">
+		    <div class="form-group form-group-sm">
+		      <label for="font-style" class="label col-sm-3 control-label">文案字体</label>
+		      <div class="col-sm-8" id="font-style">
+			      <select class="form-control">
+					  <option>微软雅黑</option>
+					  <option>Serif</option>
+					  <option>Monospace</option>
+					  <option>Glyphicons Halflings</option>
+					  <option>Non-serif</option>
+				  </select>
+			  </div>
+			</div>
+
+			<div class="form-group form-group-sm">
+			  <label for="font-color-hex" class="label col-sm-3 control-label">文案颜色</label>
+			  <div class="col-sm-9">
+			      <div id="small" class="cp cp-small"></div>
+				  <div id="color"></div>
+				  <br />
+				  <div class="form-group form-group-sm">
+					  <div class="col-sm-7">
+					    <input id="font-color-hex" class="form-control" type="text" name="color" value="" />
+					  </div>
+					  <span id="rgb_css" class="invisible"></span>
+		              <input id="rgb_r" type="number" value="" class="invisible" />
+		              <input id="rgb_g" type="number" value="" class="invisible" />
+		              <input id="rgb_b" type="number" value="" class="invisible" />
+	                  <span id="hsv_css" class="invisible"></span>
+		              <input id="hsv_h" type="text" value="" class="invisible"/>
+		              <input id="hsv_s" type="text" value="" class="invisible"/>
+		              <input id="hsv_v" type="text" value="" class="invisible"/>
+				  </div>
+				  <script src="/static/js/showcase.js"></script>
+			  </div>
+			</div>
+		  
+		    <div id="InputsWrapper">
+				<div id="InputsWrapper1" class="form-group form-group-sm">
+				  <label for="title" class="label col-sm-3 control-label">标题</label>
+			      <div class="col-sm-7">
+					<textarea type="text" name="title" id="title"  class="form-control">{{ title }}</textarea>
+				  </div> 
+				  <label class="col-sm-1 control-label">
+	      			<input type="checkbox" id="" name="" class="chk_1">
+	    		  </label>
+				</div>
+
+				<div id="InputsWrapper2" class="form-group form-group-sm">
+				  <label for="subtitle" class="label col-sm-3 control-label">副标题</label>
+			      <div class="col-sm-7">
+					<textarea type="text"  name="subtitle" id="subtitle" class="form-control">{{ subtitle }}</textarea>
+				  </div> 
+				  <label class="col-sm-1 control-label">
+	      			<input type="checkbox" id="" name="" class="chk_1">
+	    		  </label>
+				</div>
+
+				<div id="InputsWrapper3" class="form-group form-group-sm">
+				  <label for="content1" class="label col-sm-3 control-label">文本内容</label>
+			      <div class="col-sm-7">
+					<textarea type="text" name="detail" id="content1" class="form-control" placeholder="暂时不能用"></textarea>
+				  </div>  
+				  <label class="col-sm-1 control-label">
+	      			<input type="checkbox" id="" name="" class="chk_1">
+	    		  </label>
+				</div>
+			</div>
+
+			<div class="form-group form-group-sm">
+			  <div class="col-sm-offset-3 col-sm-4">
+			    <a id="AddMoreContent" type="button" class="btn btn-sm btn-primary" role="button">添加</a>
+			  </div>
+			</div>
+		   
+	          <script>  
+				$(document).ready(function() {  
+				  
+					var MaxInputs       = 8; //maximum input boxes allowed  
+					var InputsWrapper   = $("#InputsWrapper"); //Input boxes wrapper ID  
+					var AddButton       = $("#AddMoreContent"); //Add button ID  
+					  
+					var x = InputsWrapper.length; //initlal text box count  
+					var FieldCount=1; //to keep track of text box added  
+					  
+					$(AddButton).click(function (e)  //on add input button click  
+					{  
+					    if(x <= MaxInputs) //max input box allowed  
+					    {  
+					        FieldCount++; //text box added increment  
+					        //add input box  
+					        $(InputsWrapper).append('<div id="InputsWrapper" class="form-group form-group-sm"><label for="content' + FieldCount + '" class="label col-sm-3 control-label">文本内容</label><div class="col-sm-7"><textarea type="text" name="mytext[]" id="content' + FieldCount + '" class="form-control"></textarea></div><div class="col-sm-1"><a class="removeclass btn btn-xs btn-primary" type="button" role="button">×</a></div></div>');  
+					        x++; //text box increment  
+					    }  
+					    return false;  
+					});  
+					
+				  
+					$("body").on("click",".removeclass", function(e){ 
+					    FieldCount--;//user click on remove text  
+					    if( x > 1 ) {  
+					            $(this).parent('div').parent('div').remove(); //remove text box  
+					                x--; //decrement textbox  
+					    }  
+					    return false;  
+					})  
+				});  
+			  </script> 
+
+			  <div class="form-group form-group-sm">
+			    <label for="image" class="label col-sm-3 control-label">图片素材</label>
+			    <div class="col-sm-8">
+			<label for="image" class="label col-sm-3 control-label">这里请选择有透明通道的png图片</label><br>
+		          <input id="files" type="file"  name="image" class="btn btn-sm btn-primary" value="上传" />
+				</div>
+			  </div>
+
+			  <div class="form-group">
+			    <div class="col-sm-3"></div>
+			    <div id="fileList" class="col-sm-9"></div>
+			    <div class="col-sm-3"></div>
+			    <div id="file_size" class="col-sm-9"></div>  
+			  </div>
+
+			  <hr />
+
+			  <div class="form-group form-group-sm">
+		        <label class="label col-sm-3 control-label">广告尺寸</label>
+			    <div class="col-sm-4">
+			      <input type="number" name="w" class="form-control" id="w" value="{{ width }}" placeholder="长/px">
+			    </div>
+			    <div class="col-sm-4">
+			      <input type="number" name="h" class="form-control" id="h" value="{{ height }}" placeholder="宽/px">
+			    </div>
+			  </div>
+
+			  <hr />
+
+			  <div class="form-group form-group-sm">
+		        <label for="style_choose" class="label col-sm-3 control-label">风格选择</label>
+			    <div class="col-sm-8">
+			      <script> 
+					function myFun(sId) { 
+					    var oImg = document.getElementsByTagName('img'); 
+
+					    for (var i = 0; i < oImg.length; i++) { 
+					        if (oImg[i].id == sId) { 
+					            oImg[i].previousSibling.previousSibling.checked = true; 
+					            oImg[i].style.border = '5px solid #ffffff'; 
+					        } else { 
+					        oImg[i].style.border = '5px solid #F23F60'; 
+                            } 
+                        }
+					} 
+                 </script> 
+			      <div id="style_choose" class="style_choose"> 
+					<input type="radio" value= "style" id= "complicated_style" name="style" style="display:none"> <img id="style1" src="/static/img/复杂.jpg" onclick="myFun(this.id)"> 
+					<input type="radio" value= "style" id= "simple_style" name="style" style="display:none"> <img id="style2" src="/static/img/简约.jpg" onclick="myFun(this.id)"> 
+					<input type="radio" value= "style" id= "active_style" name="style" style="display:none"> <img id="style3" src="/static/img/活跃.jpg" onclick="myFun(this.id)"> 
+					<input type="radio" value= "style" id= "stable_style" name="style" style="display:none"> <img id="style4" src="/static/img/稳定.jpg" onclick="myFun(this.id)"> 
+					<input type="radio" value= "style" id= "power_style" name="style" style="display:none"> <img id="style5" src="/static/img/张力.jpg" onclick="myFun(this.id)"> 
+					<input id="Button2" type="button"  class="btn btn-sm btn-primary" value="选择文件" /> 
+				  </div> 
+				  <input id="files2" type="button"  class="btn btn-sm btn-primary" value="上传" /> 
+			    </div>
+			  </div>
+
+			  <br />
+
+			  <div class="form-group form-group-sm">
+		        <label for="rangementchoose" class="label col-sm-3 control-label">排版选择</label>
+			    <div class="col-sm-8">
+			      <div id="rangementchoose" class="style_choose"> 
+					<input type="radio" value= "rangement" id= "upanddown" name="rangement" style="display:none"> <img id="rangement1" src="/static/img/上下.jpg" onclick="myFun(this.id)"> 
+					<input type="radio" value= "rangement" id= "leftandright" name="rangement" style="display:none"> <img id="rangement2" src="/static/img/左右.jpg" onclick="myFun(this.id)"> 
+					<input type="radio" value= "rangement" id= "leftrightanddown" name="rangement" style="display:none"> <img id="rangement3" src="/static/img/左右下.jpg" onclick="myFun(this.id)"> 
+					<input type="radio" value= "rangement" id= "leftandupdown" name="rangement" style="display:none"> <img id="rangement4" src="/static/img/左上下.jpg" onclick="myFun(this.id)"> 
+					<input type="radio" value= "rangement" id= "fourgrid" name="rangement" style="display:none"> <img id="rangement5" src="/static/img/上下左右.jpg" onclick="myFun(this.id)"> 
+					<input type="radio" value= "rangement" id= "allgrid" name="rangement" style="display:none"> <img id="rangement6" src="/static/img/网格.jpg" onclick="myFun(this.id)"> 
+				  </div>  
+			    </div>
+			  </div>
+
+			  <br />
+
+			  <div class="form-group form-group-sm">
+		        <label for="balance" class="label col-sm-3 control-label">平衡计算</label>
+			    <div class="col-sm-8">
+                  <input name="balance" id="balance" class="single-slider" type="hidden" value="0.0"/>
+                  <script>
+                  $('.single-slider').jRange({
+					    from: 0,
+					    to: 10,
+					    step: 1,
+					    scale: [0,1,2,3,4,5,6,7,8,9,10],
+					    format: '%s',
+					    width: 250,
+					    showLabels: true,
+					    snap: true,
+					    theme: 'theme-blue'
+					});
+                  </script>
+			    </div>
+			  </div>
+
+              <div class="form-group form-group-sm">
+		        <label for="symmetry" class="label col-sm-3 control-label">大小计算</label>
+			    <div class="col-sm-8">
+                  <input id="symmetry" class="single-slider" name="scale"  type="hidden" value="0.0"/>
+                  <script>
+                  $('.single-slider').jRange({
+					    from: 0,
+					    to: 10,
+					    step: 1,
+					    scale: [0,1,2,3,4,5,6,7,8,9,10],
+					    format: '%s',
+					    width: 250,
+					    showLabels: true,
+					    snap: true,
+					    theme: 'theme-blue'
+					});
+                  </script>
+			    </div>
+			  </div>
+
+			  <div class="form-group form-group-sm">
+		        <label for="space" class="label col-sm-3 control-label">留白计算</label>
+			    <div class="col-sm-8">
+                  <input id="space" class="single-slider" type="hidden" name="space" value="0.0"/>
+                  <script>
+                  $('.single-slider').jRange({
+					    from: 0,
+					    to: 10,
+					    step: 1,
+					    scale: [0,1,2,3,4,5,6,7,8,9,10],
+					    format: '%s',
+					    width: 250,
+					    showLabels: true,
+					    snap: true,
+					    theme: 'theme-blue'
+					});
+                  </script>
+			    </div>
+			  </div>
+
+			  <div class="form-group form-group-sm">
+		        <label for="alignment" class="label col-sm-3 control-label">对齐计算</label>
+			    <div class="col-sm-8">
+                  <input  id="alignment" class="single-slider" type="hidden" name="alignment" value="0.0"/>
+                  <script>
+                  $('.single-slider').jRange({
+					    from: 0,
+					    to: 10,
+					    step: 1,
+					    scale: [0,1,2,3,4,5,6,7,8,9,10],
+					    format: '%s',
+					    width: 250,
+					    showLabels: true,
+					    snap: true,
+					    theme: 'theme-blue'
+					});
+                  </script>
+			    </div>
+			  </div>
+
+			  <div class="form-group form-group-sm">
+		        <label for="barycenter" class="label col-sm-3 control-label">重叠计算</label>
+			    <div class="col-sm-8">
+                  <input id="barycenter" class="single-slider" type="hidden" name="overlap" value="0.0"/>
+                  <script>
+                  $('.single-slider').jRange({
+					    from: 0,
+					    to: 10,
+					    step: 1,
+					    scale: [0,1,2,3,4,5,6,7,8,9,10],
+					    format: '%s',
+					    width: 250,
+					    showLabels: true,
+					    snap: true,
+					    theme: 'theme-blue'
+					});
+                  </script>
+			    </div>
+			  </div>
+
+			  <hr />
+
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-3">
+			      <button name="submit" value="generate" type="submit" class="btn btn-default">提交</button>
+			    </div>
+
+			    <div class="col-sm-offset-2 col-sm-3">
+			      <button name="submit" value="optimize" type="submit" class="btn btn-default">优化</button>
+			    </div>
+			  </div>
+
+          </form>
+        </div>
+	</div>
+
+
+    <div class="container theme-showcase" role="main">
+      <div class="page-header">
+        <h1>广告图片生成</h1>
+      </div>
+    <div class="row">
+        <div class="col-sm-12">
+	<button class="btn btn-lg btn-primary setting" id="showLeftPush">设置参数</button>
+        </div>
+      </div>
+      <br />
+      <div class="well">
+        {% if flag %}
+      	<h1>请点击“设置参数”来设置广告样式</h1>
+      	{% else %}
+       <h2>您输入的标题是：{{ title }}</h2>
+       <h2>副标题是：{{ subtitle }}</h2>
+       <h2>尺寸：{{ width }} px X {{ height }} px</h2>
+      	<img src="/static/img/initialize.png" alt="Advertisement" class="img-thumbnail">
+        <h2>对应的参数指标</h2>
+	<hr>
+	{% for item in context %}
+        <h4>{{ item }}</h4>
+	{% endfor %}
+      	{% endif %}
+	
+	{% if op %}
+	<img src="/static/img/final.png" alt="Advertisement" class="img-thumbnail">
+	{% endif %}
+      </div>
+    </div>
+
+
+      
+
+
+    </div> <!-- /container -->
+
+        <script src="/static/js/classie.js"></script>
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+				showLeftPush1 = document.getElementById( 'showLeftPush1' ),
+				body = document.body;
+
+			
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+			};
+
+			showLeftPush1.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+			};
+
+			function disableOther( button ) {
+				
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+			}
+		</script>
+
+        
+  </body>
+</html>

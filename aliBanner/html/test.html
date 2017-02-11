@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>用JS实现的radio图片选择按钮效果-脚本之家</title> 
+<style> 
+.lanrentuku img{border:5px solid #F23F60;} 
+</style> 
+</head> 
+
+<body> 
+<script> 
+function myFun(sId) { 
+var oImg = document.getElementsByTagName('img'); 
+
+for (var i = 0; i < oImg.length; i++) { 
+if (oImg[i].id == sId) { 
+oImg[i].previousSibling.previousSibling.checked = true; 
+oImg[i].style.border = '5px solid #ffffff'; 
+} else { 
+oImg[i].style.border = '5px solid #F23F60'; 
+
+} 
+} 
+} 
+</script> 
+<div class="lanrentuku"> 
+<input type="radio" value= "lanrentuku" id= "111" name="aaa" style="display:none"> <img id="aa" src="http://files.jb51.net/upload/2010-1/20100119030617615.gif " onclick="myFun(this.id)"> 
+<input type="radio" value= "lanrentuku" id= "222" name="aaa" style="display:none"> <img id="bb" src="http://files.jb51.net/upload/2010-1/20100119030617308.gif" onclick="myFun(this.id)"> 
+<input type="radio" value= "lanrentuku" id= "333" name="aaa" style="display:none"> <img id="cc" src="http://files.jb51.net/upload/2010-1/20100119030617561.gif" onclick="myFun(this.id)"> 
+</div> 
+<p>用JS实现的radio图片选择按钮效果。</p> 
+<p>注意：input后面的空格。</p> 
+<p>查找更多代码，请访问：<a href="http://www.jb51.net/" target="_blank">脚本之家</a></p> 
+</body> 
+</html>
